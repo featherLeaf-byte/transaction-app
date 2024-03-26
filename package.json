@@ -1,0 +1,34 @@
+{
+  "name": "transaction-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@headlessui/tailwindcss": "^0.2.0",
+    "@nextui-org/table": "^2.0.28",
+    "@tremor/react": "^3.14.1",
+    "chart.js": "^4.4.2",
+    "moment": "^2.30.1",
+    "mongoose": "^8.2.3",
+    "next": "14.1.4",
+    "next-auth": "^4.24.7",
+    "react": "^18",
+    "react-datepicker": "^6.5.0",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1",
+    "react-modal": "^3.16.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.70",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4"
+  }
+}
