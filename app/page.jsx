@@ -1,12 +1,13 @@
 import NavBar from './Components/NavBar'
-
-import SignInButton from './Components/SignInButton'
 import TransactionTable from './Components/TransactionTable'
 
 async function getTransactions() {
-  const res = await fetch('http://localhost:3000/api/transactions', {
-    cache: 'no-store',
-  })
+  const res = await fetch(
+    'https://welo-transaction.netlify.app/api/transactions',
+    {
+      cache: 'no-store',
+    }
+  )
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
