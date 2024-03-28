@@ -84,22 +84,22 @@ export default function AddTransaction() {
                 alert('There are missing fields')
               }
               try {
-                const res = await fetch(
-                  'http://localhost:3000/api/transactions',
-                  {
-                    method: 'POST',
-                    headers: {
-                      'Content-type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                      date,
-                      merchantName,
-                      description,
-                      category,
-                      amount,
-                    }),
-                  }
-                )
+                const url = window.location.origin.includes('localhost')
+                  ? 'http://localhost:3000/api/transactions'
+                  : 'https://welo-transaction.netlify.app/api/transactions'
+                const res = await fetch(url, {
+                  method: 'POST',
+                  headers: {
+                    'Content-type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    date,
+                    merchantName,
+                    description,
+                    category,
+                    amount,
+                  }),
+                })
                 if (res.ok) {
                   router.push('/')
                 } else {

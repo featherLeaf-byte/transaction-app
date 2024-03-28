@@ -4,13 +4,6 @@ import { useRef, useEffect } from 'react'
 
 const PieChart = (transactions) => {
   const transactionsData = transactions.transactions
-  const categoryList = transactionsData.map(
-    (transaction) => transaction.category
-  )
-  function filterCategories(list) {
-    return [...new Set(list)]
-  }
-  const categories = filterCategories(categoryList)
   function sumExpensesByCategories(transactions) {
     const totals = transactions.reduce((sum, transaction) => {
       sum[transaction.category] =

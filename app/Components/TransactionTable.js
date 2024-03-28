@@ -226,8 +226,13 @@ export default function TransactionTable({ data, search }) {
                                   'Are you sure you want to delete the transaction?'
                                 )
                                 if (confirmDeletion) {
+                                  const url = window.location.origin.includes(
+                                    'localhost'
+                                  )
+                                    ? 'http://localhost:3000/data'
+                                    : 'https://your-production-api.com/data'
                                   const res = await fetch(
-                                    `http://localhost:3000/api/transactions?id=${transaction._id}`,
+                                    `${url}/api/transactions?id=${transaction._id}`,
                                     {
                                       method: 'DELETE',
                                     }
@@ -298,8 +303,13 @@ export default function TransactionTable({ data, search }) {
                                     'Are you sure you want to delete the transaction?'
                                   )
                                   if (confirmDeletion) {
+                                    const url = window.location.origin.includes(
+                                      'localhost'
+                                    )
+                                      ? 'http://localhost:3000'
+                                      : 'https://welo-transaction.netlify.app'
                                     const res = await fetch(
-                                      `http://localhost:3000/api/transactions?id=${transaction._id}`,
+                                      `${url}/api/transactions?id=${transaction._id}`,
                                       {
                                         method: 'DELETE',
                                       }

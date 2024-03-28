@@ -1,7 +1,10 @@
 import UpdateTransaction from '@/app/Components/UpdateTransaction'
 const getTransactionById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/transactions/${id}`, {
+    const url = window.location.origin.includes('localhost')
+      ? 'http://localhost:3000'
+      : 'https://welo-transaction.netlify.app'
+    const res = await fetch(`${url}/api/transactions/${id}`, {
       cache: 'no-store',
     })
     if (!res.ok) {

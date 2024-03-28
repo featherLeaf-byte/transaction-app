@@ -89,22 +89,22 @@ export default function UpdateTransaction({
             onClick={async (e) => {
               e.preventDefault
               try {
-                const res = await fetch(
-                  `http://localhost:3000/api/transactions/${id}`,
-                  {
-                    method: 'PUT',
-                    headers: {
-                      'Content-type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                      newDate,
-                      newMerchantName,
-                      newDescription,
-                      newCategory,
-                      newAmount,
-                    }),
-                  }
-                )
+                const url = window.location.origin.includes('localhost')
+                  ? 'http://localhost:3000'
+                  : 'https://https://welo-transaction.netlify.app'
+                const res = await fetch(`${url}/api/transactions/${id}`, {
+                  method: 'PUT',
+                  headers: {
+                    'Content-type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    newDate,
+                    newMerchantName,
+                    newDescription,
+                    newCategory,
+                    newAmount,
+                  }),
+                })
                 if (!res.ok) {
                   throw new Error('Failed to update transaction')
                 }

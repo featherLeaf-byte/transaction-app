@@ -18,7 +18,10 @@ const authOptions = {
           await connectMongoDB()
           const exists = await User.findOne({ emailAddress })
           if (!exists) {
-            const url = 'http://localhost:3000/api/user'
+            const url = window.location.origin.includes('localhost')
+              ? 'http://localhost:3000/api/user'
+              : 'https://welo-transaction.netlify.app/api/user'
+
             const res = await fetch(url, {
               method: 'POST',
               header: {
