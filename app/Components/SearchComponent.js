@@ -1,4 +1,5 @@
 'use client'
+import { BiSearch } from 'react-icons/bi'
 export default function SearchComponet() {
   const [searchTerm, setSearchTerm] = useState('')
   return (
